@@ -1,0 +1,46 @@
+<% provide(:title, 'Sign up') %>
+<h1>Sign up</h1>
+
+<div>
+  <div>
+    <%= form_for(@user) do |f| %>
+      <div>
+        <%= render 'shared/error_messages', object: @user %>
+      </div>
+
+      <div>
+        <%= f.label :name, "Name :" %>
+        <div>
+          <%= f.text_field :name, placeholder: "Enter Name" %>
+        </div>
+      </div>
+
+      <div>
+        <%= f.label :email, "Email :" %>
+        <div>
+          <%= f.email_field :email, placeholder: "Enter Email" %>
+        </div>
+      </div>
+
+      <div>
+        <%= f.label :password, "Password :" %>
+        <div>
+          <%= f.password_field :password, placeholder: "Enter Password" %>
+        </div>
+      </div>
+
+      <div>
+        <%= f.label :password_confirmation, "Retype Password :" %>
+        <div>
+          <%= f.password_field :password_confirmation, placeholder: "Re-enter Password" %>
+        </div>
+      </div>
+
+      <div>
+        <div>
+          <%= f.submit "Sign Up" %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

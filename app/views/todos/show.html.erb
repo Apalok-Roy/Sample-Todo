@@ -1,0 +1,10 @@
+<% provide(:title, "Todo Show Page") %>
+<div>
+  <aside>
+    <section>
+      <p><%= @todo.description %></p>
+      <p><strong>Schedule: </strong><%= @todo.schedule %></p>
+      <p><strong>Status: </strong><%= @todo.status? ? "Done" : "Pending" %></p>
+    </section>
+  </aside>
+</div>

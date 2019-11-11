@@ -1,0 +1,26 @@
+<% provide(:title, "My Todos") %>
+<div>
+  <h1>My Todos</h1>
+  <div>
+    <%= link_to "New Todo", new_user_todo_path(current_user) %>
+    <table class="table table-striped">
+      <tr>
+        <td><h4>Description</h4></td>
+        <td><h4>Schedule Date</h4></td>
+        <td><h4>Status</h4></td>
+        <td colspan=3 class="text-center"><h4>Links</h4></td>
+      <tr>
+      <% @todos.each do |todo| %>
+        <tr>
+          <td><%= todo.description %></td>
+          <td><%= todo.schedule %></td>
+          <td><%= todo.status? ? "Done" : "Pending" %></td>
+          <td><%= link_to "Show" , user_todo_path(todo.user_id, todo) %></td>
+          <td><%= link_to "Edit" , edit_user_todo_path(todo.user_id, todo) %></td>
+          <td><%= link_to "Delete" , user_todo_path(todo.user_id, todo),
+                  method: :delete, data: { confirm: "Are You sure?" } %></td>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+</div>

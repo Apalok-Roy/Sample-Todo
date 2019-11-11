@@ -1,0 +1,39 @@
+<%= form_for([@user, @todo]) do |f| %>
+  <div>
+    <%= render 'shared/error_messages', object: @todo %>
+  </div>
+
+  <div>
+    <%= f.label :description, "Description :" %>
+    <div>
+      <%= f.text_area :description, placeholder: "Enter Description" %>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :status, "Status :" %>
+    <div>
+      <div>
+        <%= f.radio_button :status, true %>
+        <%= f.label :status, "Done" %>
+      </div>
+      <div>
+        <%= f.radio_button :status, false %>
+        <%= f.label :status, "Undone" %>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <%= f.label :schedule, "Schedule Date :" %>
+    <div>
+      <%= f.date_field :schedule %>
+    </div>
+  </div>
+
+  <div>
+    <div>
+      <%= f.submit yield(:button_text) %>
+    </div>
+  </div>
+<% end %>
